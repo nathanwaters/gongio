@@ -1,0 +1,33 @@
+{% extends 'page.html' %}
+
+{% block subtitle %}{{ _('About') }}{% endblock %}
+{% block wrapper_class %}-page{% endblock %}
+
+{% block primary %}
+  <div class="container">
+    <div class="row">
+      <div class="span8 wrapper no-nav">
+        <div class="page-inner">
+          {% block about %}
+            <h1 class="page-heading">{{ _('About') }}</h1>
+            {% snippet 'snippets/gongio_about_text.html' %}
+          {% endblock %}
+        </div>
+      </div>
+      <div class="span4">
+        <ul class="page-sidebar">
+          <li class="fb-group">
+            <i class="icon-facebook"></i>
+            <a href="https://facebook.com/groups/gong.io" target="_blank">Join the<br>Facebook Group</a>
+          </li>
+          <li class="req-data">
+            <i class="icon-unlock-alt"></i>
+            <a href="/pages/contact">Request Data</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block secondary %}{% endblock %}

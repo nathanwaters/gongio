@@ -1,0 +1,11 @@
+setup.py
+ckanext/__init__.py
+ckanext/gongio/__init__.py
+ckanext/gongio/plugin.py
+ckanext_gongio.egg-info/PKG-INFO
+ckanext_gongio.egg-info/SOURCES.txt
+ckanext_gongio.egg-info/dependency_links.txt
+ckanext_gongio.egg-info/entry_points.txt
+ckanext_gongio.egg-info/namespace_packages.txt
+ckanext_gongio.egg-info/not-zip-safe
+ckanext_gongio.egg-info/top_level.txt

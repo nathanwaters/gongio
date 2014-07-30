@@ -1,0 +1,73 @@
+<div role="main" class="hero">
+  <div class="container">
+    <div class="row row2">
+      <div class="span6 col2">
+          <h1><span>OPEN <i>the</i> DATA</span></h1>
+          <h1><span>CODE <i>the</i> GONG</span></h1>
+          {% snippet 'snippets/gongio_search.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+<div role="main" class="opts">
+  <div class="container">
+    <div class="row row2">
+      <a href="/pages/upload" class="opt-data opt-btn span4 col3">
+          <i class="icon-cloud-upload"></i>Got Data?
+      </a>
+      <a href="/pages/makers" class="opt-makers opt-btn span4 col2">
+          <i class="icon-magic"></i>Makers & Devs
+      </a>
+      <a href="/pages/ideas" class="opt-ideas opt-btn span4 col3">
+          <i class="icon-lightbulb"></i>Epic Ideas
+      </a>
+    </div>
+  </div>
+</div>
+<div role="main">
+  <div class="container">
+    <div class="row row2">
+      <div class="span6 col2">
+          
+        <div class="featured-app flat-box">
+          <div class="built-with-tag">Built with open data</div>
+          <div class="row">
+            {% for app in h.gongio_random_app() %}
+            <div class="span4 featured-app-desc">
+              <div class="inner">
+                <h3><a href="{{ h.url_for('related_read', id=app.id) }}">{{ app.title }}</a></h3>
+                {% if app.description %}
+                    {{ h.render_markdown(app.description|truncate(160)) }}
+                {% endif %}
+                <p><a href="{{ h.url_for('related_read', id=app.id) }}">Check it out!</a></p>
+              </div>
+            </div>
+            <div class="span2">
+              <a href="{{ h.url_for('related_read', id=app.id) }}"><img src="{{ app.image_url or placeholder_map[app.type] or h.url_for_static('/base/images/placeholder-image.png') }}" alt="{{ app.title }}" class="media-image"></a>
+            </div>
+              {% endfor %} 
+          </div>
+          <span class="banner">app</span>
+        </div>
+          
+        <h3><i class="icon-trophy"></i> Illawarra Open Data Leaderboard</h3>
+        <ol class="leaderboard">
+        {% for organization in h.gongio_most_popular_organizations() %}
+          <li><a href="{{ h.url_for('organization_read', action='read', id=organization.name) }}">{{ organization.display_name }}
+              {% if organization.packages %}
+                <span>{{ ungettext('{num} Dataset', '{num} Datasets', organization.packages).format(num=organization.packages) }}</span>
+              {% else %}
+                <span>{{ _('0 Datasets') }}</span>
+              {% endif %}
+            </a></li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div class="span5 offset1 col1">
+        {% snippet 'snippets/gongio_stats.html' %}
+        <h3>Recent Activity</h3>
+        {{ h.recently_changed_packages_activity_stream(limit=7) }}
+      </div>
+    </div>
+  </div>
+</div>

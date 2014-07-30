@@ -1,0 +1,19 @@
+{% ckan_extends %}
+
+{% block meta %}
+  {{ super() }}
+<meta name="description" value="Gong.io is an open data initiative and platform for Wollongong, Shellharbour, Kiama and the greater Illawarra region. We're on a mission to rapidly transform the region through the power of open data, and by harnessing the creativity of makers and developers." />
+<meta name="keywords" content="open data,open,data,wollongong,illawarra,shellharbour,kiama,initiative,dataset,makers,developers,csv,json,api,xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gong.io - Wollongong Open Data Initiative" />
+<meta property="og:site_name" content="Gong.io" />
+<meta property="og:description" content="Gong.io is an open data initiative and platform for Wollongong, Shellharbour, Kiama and the greater Illawarra region. We're on a mission to rapidly transform the region through the power of open data, and by harnessing the creativity of makers and developers." />
+<meta property="og:url" content="http://gong.io/" />
+<meta property="og:image" content="http://gong.io/fb-share.png" />
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  {% resource 'gongio/custom.css' %}
+  {% resource 'gongio/custom.js' %}
+{% endblock %}
